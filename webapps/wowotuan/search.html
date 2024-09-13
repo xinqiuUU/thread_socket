@@ -1,0 +1,442 @@
+<HTML><!-- InstanceBegin template="/Templates/Template.dwt" codeOutsideHTMLIsLocked="false" -->
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<!-- InstanceBeginEditable name="doctitle" -->
+		<TITLE>人才招聘--搜索</TITLE>
+		<LINK href="image/style.css" type="text/css" rel="stylesheet">
+		<link href="css/mycss.css" type="text/css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- InstanceEndEditable -->
+		<!-- InstanceBeginEditable name="head" -->
+		<SCRIPT language="javascript">
+			function show(area) {
+				document.getElementById('workarea').value = area; //选择地点显示在按钮上
+				document.getElementById('worksearch').style.display = 'none'; //选择层隐藏
+			}
+
+			//工作地点关闭
+			function workclose(worksearch) {
+				document.getElementById('worksearch').style.display = 'none'; //选择层隐藏
+			}
+
+			//绑定事件  页面加载完毕执行
+			window.addEventListener('DOMContentLoaded', function() {
+
+				//选择地点按钮
+				document.getElementById('workarea').addEventListener("click", function() {
+					document.getElementById('worksearch').style.display = 'block';
+				});
+				document.getElementById('worksearch').getElementsByTagName('td')[1].addEventListener("click", workclose(
+					worksearch));
+
+
+				//职能类别 train
+				document.querySelectorAll('[align="absmiddle"]')[0].addEventListener("click", function() {
+					document.getElementById('train').style.display = 'block';
+				});
+				//确定按钮
+				$('#train a').eq(0).click(function() {
+					var trainValues = $('#train input[type="checkbox"]:checked').map(function() {
+						return this.value+"<br />";
+					}).get();
+					// alert(checkedValues);
+					$('#trainid').html(trainValues);
+					$('#train').hide();
+				});
+				// document.getElementById('train').getElementsByTagName('a')[0].addEventListener("click",);
+				///职能类别 关闭
+				// document.getElementById('train').getElementsByTagName('a')[1].addEventListener("click",function(){
+				// 	document.getElementById('train').style.display = 'none'; //选择层隐藏
+				// });
+				$('#train a').eq(1).click(function() {
+					$('#train').hide(); // 使用 jQuery 的 hide 方法来隐藏元素
+				});
+
+				//行业类别
+				document.querySelectorAll('[align="absmiddle"]')[1].addEventListener("click", function() {
+					document.getElementById('jobtype').style.display = 'block';
+				});
+				//确定按钮
+				$('#jobtype a').eq(0).click(function() {
+					var jobtypeValues = $('#jobtype input[type="checkbox"]:checked').map(function() {
+						return this.value+"<br />";
+					}).get();
+					$('#jobid').html(jobtypeValues);
+					$('#jobtype').hide();
+				});
+				//行业类别 关闭
+				document.getElementById('jobtype').getElementsByTagName('a')[1].addEventListener("click", function() {
+					document.getElementById('jobtype').style.display = 'none'; //选择层隐藏
+				});
+
+			});
+		</SCRIPT>
+		<!-- InstanceEndEditable -->
+	</HEAD>
+	<BODY>
+		<!-- InstanceBeginEditable name="EditRegion3" -->
+		<DIV class="main">
+			<DIV id="logo"><IMG src="image/logo.gif"></DIV>
+			<DIV id="menu"><A href="login.html"><IMG src="image/menu1-2.gif"></A><A href="search.html"><IMG
+						src="image/menu2-1.gif"></A><A href="intro.html"><IMG src="image/menu3-2.gif"></A></DIV>
+			<DIV id="menu-bg1">高级搜索 | 关键字搜索 </DIV>
+			<!--搜索开始-->
+			<DIV class="register">
+				<TABLE width="660" border="0" cellspacing="0" cellpadding="0" align="center">
+					<TR>
+						<TD><IMG src="image/search_top.gif"></TD>
+					</TR>
+					<TR>
+						<TD>
+							<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+								<TR>
+									<TD width="3" background="image/register-line.gif"></TD>
+									<TD>
+										<TABLE width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+											<FORM action="search.html" method="post" name="myform">
+												<TR>
+													<TD class="intro-l1"><IMG src="image/register-arrow.gif"> 关键字搜索</TD>
+												</TR>
+												<TR>
+													<TD class="search-left"><INPUT name="search" type="text"
+															class="search-key">&nbsp;&nbsp;<INPUT type="botton"
+															name="workarea" id="workarea" value="工作地点"
+															class="searcharea"></A></TD>
+												</TR>
+												<TR>
+													<TD class="intro-l1"><IMG src="image/register-arrow.gif"> 更多精确搜索条件
+													</TD>
+												</TR>
+												<TR>
+													<TD>
+														<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+															<TR>
+																<TD width="50%" class="search-left">职能类别 <A
+																		href="#"><IMG src="image/search-choice.gif"
+																			align="absmiddle" id="category1"></A></TD>
+
+																<TD class="search-left">行业类别 <A href="#"><IMG
+																			src="image/search-choice.gif"
+																			align="absmiddle" id="category2"></A></TD>
+															</TR>
+															<TR>
+																<TD id="trainid" style=" padding-left:100px;"
+																	valign="top"></TD>
+																<TD id="jobid" style=" padding-left:100px;"
+																	valign="top"></TD>
+															</TR>
+														</TABLE>
+													</TD>
+												</TR>
+												<TR>
+													<TD height="10"></TD>
+												</TR>
+												<TR>
+													<TD align="right">
+														<TABLE width="94%" border="0" cellspacing="0" cellpadding="0">
+															<TR>
+																<TD height="25">发布日期</TD>
+																<TD><SELECT name="issuedate" class="search-select">
+																		<OPTION value="0">--请选择--</OPTION>
+																		<OPTION value="近一天">近一天</OPTION>
+																		<OPTION value="近二天">近二天</OPTION>
+																		<OPTION value="近三天">近三天</OPTION>
+																		<OPTION value="近一周">近一周</OPTION>
+																		<OPTION value="近两周">近两周</OPTION>
+																		<OPTION value="近一月">近一月</OPTION>
+																		<OPTION value="近六周">近六周</OPTION>
+																		<OPTION value="近两月">近两月</OPTION>
+																	</SELECT></TD>
+																<TD>工作年限</TD>
+																<TD><SELECT name="workyear" class="search-select">
+																		<OPTION value='0'>--请选择--</OPTION>
+																		<OPTION value='在读学生'>在读学生</OPTION>
+																		<OPTION value='应届毕业生'>应届毕业生</OPTION>
+																		<OPTION value='一年以上'>一年以上</OPTION>
+																		<OPTION value='二年以上'>二年以上</OPTION>
+																		<OPTION value='三年以上'>三年以上</OPTION>
+																		<OPTION value='五年以上'>五年以上</OPTION>
+																		<OPTION value='八年以上'>八年以上</OPTION>
+																		<OPTION value='十年以上'>十年以上</OPTION>
+																	</SELECT></TD>
+																<TD>月薪范围</TD>
+																<TD><SELECT name="salary" class="search-select">
+																		<OPTION value=''>--请选择--</OPTION>
+																		<OPTION value='面议'>面议</OPTION>
+																		<OPTION value='1500以下'>1500以下</OPTION>
+																		<OPTION value='1500-1999'>1500-1999</OPTION>
+																		<OPTION value='2000-2999'>2000-2999</OPTION>
+																		<OPTION value='3000-4499'>3000-4499</OPTION>
+																		<OPTION value='4500-5999'>4500-5999</OPTION>
+																		<OPTION value='6000-7999'>6000-7999</OPTION>
+																		<OPTION value='8000-9999'>8000-9999</OPTION>
+																		<OPTION value='10000-14999'>10000-14999</OPTION>
+																		<OPTION value='15000-19999'>15000-19999</OPTION>
+																		<OPTION value='20000-29999'>20000-29999</OPTION>
+																		<OPTION value='30000-49999'>30000-49999</OPTION>
+																		<OPTION value='50000及以上'>50000及以上</OPTION>
+																	</SELECT></TD>
+															</TR>
+															<TR>
+																<TD height="25">公司性质</TD>
+																<TD><SELECT name="cotype" class="search-select">
+																		<OPTION value='0'>--请选择--</OPTION>
+																		<OPTION value='外资(欧美)'>外资(欧美)</OPTION>
+																		<OPTION value='外资(非欧美)'>外资(非欧美)</OPTION>
+																		<OPTION value='合资(欧美)'>合资(欧美)</OPTION>
+																		<OPTION value='合资(非欧美)'>合资(非欧美)</OPTION>
+																		<OPTION value='国企/上市公司'>国企/上市公司</OPTION>
+																		<OPTION value='民营/私营公司'>民营/私营公司</OPTION>
+																		<OPTION value='外企代表处'>外企代表处</OPTION>
+																		<OPTION value='其它性质'>其它性质</OPTION>
+																	</SELECT></TD>
+																<TD>学历要求</TD>
+																<TD><SELECT name="xueli" class="search-select">
+																		<OPTION value='0'>--请选择--</OPTION>
+																		<OPTION value='无'>无</OPTION>
+																		<OPTION value='初中'>初中</OPTION>
+																		<OPTION value='高中'>高中</OPTION>
+																		<OPTION value='中技'>中技</OPTION>
+																		<OPTION value='中专'>中专</OPTION>
+																		<OPTION value='大专'>大专</OPTION>
+																		<OPTION value='本科'>本科</OPTION>
+																		<OPTION value='硕士'>硕士</OPTION>
+																		<OPTION value='博士'>博士</OPTION>
+																		<OPTION value='其他'>其他</OPTION>
+																		<OPTION value='不限'>不限</OPTION>
+																	</SELECT></TD>
+																<TD>工作类型</TD>
+																<TD><SELECT name="jobterm" class="search-select">
+																		<OPTION value='0'>--请选择--</OPTION>
+																		<OPTION value='全职'>全职</OPTION>
+																		<OPTION value='兼职'>兼职</OPTION>
+																	</SELECT></TD>
+															</TR>
+														</TABLE>
+													</TD>
+												</TR>
+												<TR>
+													<TD height="10"></TD>
+												</TR>
+												<TR>
+													<TD align="center" height="35"><INPUT name="B1" type="submit"
+															value="&nbsp;" class="btn-search"></TD>
+												</TR>
+											</FORM>
+										</TABLE>
+									</TD>
+									<TD width="3" background="image/register-line.gif"></TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD><IMG src="image/search_bottom.gif"></TD>
+					</TR>
+				</TABLE>
+			</DIV>
+			<!--工作地点层设置-->
+			<DIV class="search-top" id="worksearch">
+				<DIV class="search-menu">
+					<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+						<TR>
+							<TD><IMG src="image/orangearrow.gif"> <SPAN class="white">请选择工作地点</SPAN></TD>
+							<TD align="right"><A href="javascript:workclose('worksearch')" class="A-white">[关
+									闭]</A>&nbsp;</TD>
+						</TR>
+					</TABLE>
+				</DIV>
+				<DIV>
+					<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+						<TR align="center">
+							<TD><A href="javascript:show('北京市')">北京市</A></TD>
+							<TD><A href="javascript:show('上海市')">上海市</A></TD>
+							<TD><A href="javascript:show('广东省')">广东省</A></TD>
+							<TD><A href="javascript:show('深圳市')">深圳市</A></TD>
+							<TD><A href="javascript:show('天津市')">天津市</A></TD>
+							<TD><A href="javascript:show('重庆市')">重庆市</A></TD>
+						</TR>
+						<TR align="center">
+							<TD><A href="javascript:show('江苏省')">江苏省</A></TD>
+							<TD><A href="javascript:show('浙江省')">浙江省</A></TD>
+							<TD><A href="javascript:show('四川省')">四川省</A></TD>
+							<TD><A href="javascript:show('海南省')">海南省</A></TD>
+							<TD><A href="javascript:show('福建省')">福建省</A></TD>
+							<TD><A href="javascript:show('山东省')">山东省</A></TD>
+						</TR>
+						<TR align="center">
+							<TD><A href="javascript:show(江西省'')">江西省</A></TD>
+							<TD><A href="javascript:show('广西')">广西</A></TD>
+							<TD><A href="javascript:show('安徽省')">安徽省</A></TD>
+							<TD><A href="javascript:show('河北省')">河北省</A></TD>
+							<TD><A href="javascript:show('河南省')">河南省</A></TD>
+							<TD><A href="javascript:show('湖北省')">湖北省</A></TD>
+						</TR>
+						<TR align="center">
+							<TD><A href="javascript:show('湖南省')">湖南省</A></TD>
+							<TD><A href="javascript:show('陕西省')">陕西省</A></TD>
+							<TD><A href="javascript:show('山西省')">山西省</A></TD>
+							<TD><A href="javascript:show('黑龙江省')">黑龙江省</A></TD>
+							<TD><A href="javascript:show('辽宁省')">辽宁省</A></TD>
+							<TD><A href="javascript:show('吉林省')">吉林省</A></TD>
+						</TR>
+						<TR align="center">
+							<TD><A href="javascript:show('云南省')">云南省</A></TD>
+							<TD><A href="javascript:show('贵州省')">贵州省</A></TD>
+							<TD><A href="javascript:show('甘肃省')">甘肃省</A></TD>
+							<TD><A href="javascript:show('内蒙古')">内蒙古</A></TD>
+							<TD><A href="javascript:show('宁夏')">宁夏</A></TD>
+							<TD><A href="javascript:show('西藏')">西藏</A></TD>
+						</TR>
+						<TR align="center">
+							<TD><A href="javascript:show('新疆')">新疆</A></TD>
+							<TD><A href="javascript:show('青海省')">青海省</A></TD>
+							<TD><A href="javascript:show('香港')">香港</A></TD>
+							<TD><A href="javascript:show('澳门')">澳门</A></TD>
+							<TD><A href="javascript:show('台湾')">台湾</A></TD>
+							<TD><A href="javascript:show('国外')">国外</A></TD>
+						</TR>
+					</TABLE>
+				</DIV>
+			</DIV>
+			<!--职能类别搜索开始-->
+			<DIV class="search-train" id="train">
+				<DIV class="search-menu">
+					<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+						<TR>
+							<TD><IMG src="image/orangearrow.gif"> <SPAN class="white">请选择您想搜索的职位</SPAN></TD>
+							<TD align="right"><A href="#" class="A-white">[确 定]</A>&nbsp;<A href="#" class="A-white">[关
+									闭]</A>&nbsp;</TD>
+						</TR>
+					</TABLE>
+				</DIV>
+				<DIV>
+					<TABLE width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+						<FORM method="post" name="tform">
+							<TR>
+								<TD height="25"><INPUT id="tbox" name="tbox" type="checkbox" value="IT开发及应用">IT开发及应用
+								</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="IT管理">IT管理</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="销售管理">销售管理</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="销售人员">销售人员</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="银行">银行</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="tbox" name="tbox" type="checkbox" value="广告/媒介">广告/媒介</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="写作/出版/印刷">写作/出版/印刷</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="生产/营运">生产/营运</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="服装/纺织/皮革">服装/纺织/皮革</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="交通动输服务">交通动输服务</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="tbox" name="tbox" type="checkbox" value="市场/营销">市场/营销</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="房地产">房地产</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="医院/医疗/护理">医院/医疗/护理</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="财务/审计/税务">财务/审计/税务</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="公务员">公务员</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="tbox" name="tbox" type="checkbox" value="物业管理">物业管理</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="人力资源">人力资源</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="科研人员">科研人员</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="教师">教师</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="餐饮/娱乐">餐饮/娱乐</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="tbox" name="tbox" type="checkbox" value="行政/后勤">行政/后勤</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="美容/健身务">美容/健身</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="在校学生">在校学生</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="兼职">兼职</TD>
+								<TD><INPUT id="tbox" name="tbox" type="checkbox" value="其他">其他</TD>
+							</TR>
+						</FORM>
+					</TABLE>
+				</DIV>
+			</DIV>
+			<!--行业类别搜索开始-->
+			<DIV class="search-train" id="jobtype">
+				<DIV class="search-menu">
+					<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+						<TR>
+							<TD><IMG src="image/orangearrow.gif"> <SPAN class="white">请选择您想搜索的行业</SPAN></TD>
+							<TD align="right"><A href="#" class="A-white">[确 定]</A>&nbsp;<A href="#" class="A-white">[关
+									闭]</A>&nbsp;</TD>
+						</TR>
+					</TABLE>
+				</DIV>
+				<DIV>
+					<TABLE width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+						<FORM method="post" name="jform">
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="计算机软件">计算机软件</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="计算机硬件">计算机硬件</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="计算机服务">计算机服务</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="通信/电信/网络设备">通信/电信/网络设备</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="互联网/电子商务">互联网/电子商务</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="网络游戏">网络游戏</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="会计/审计">会计/审计</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="金融/投资/证券">金融/投资/证券</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="银行">银行</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="批发/零售">批发/零售</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="贸易/进出口">贸易/进出口</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="保险">保险</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="办公用品及设备">办公用品及设备</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="快速消费品">快速消费品</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="机械/设备/重工">机械/设备/重工</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="教育/培训">教育/培训</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="学术/科研">学术/科研</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="科研人员">科研人员</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="检测/认证">检测/认证</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="餐饮/娱乐">餐饮/娱乐</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="酒店/旅游">酒店/旅游</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="生活服务">生活服务</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="美容/保健">美容/保健</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="航天/航空">航天/航空</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="石油/化工/矿产">石油/化工/矿产</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="采掘业/冶炼">采掘业/冶炼</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="电力/水利">电力/水利</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="原材料和加工">原材料和加工</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="政府">政府</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="非盈利机构">非盈利机构</TD>
+							</TR>
+							<TR>
+								<TD height="25"><INPUT id="jbox" name="jbox" type="checkbox" value="环保">环保</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="农业/渔业/林业">农业/渔业/林业</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="多元化业务集团">多元化业务集团</TD>
+								<TD><INPUT id="jbox" name="jbox" type="checkbox" value="法律">法律</TD>
+								<TD><INPUT id="jbox" type="checkbox" value="其他行业">其他行业</TD>
+							</TR>
+						</FORM>
+					</TABLE>
+				</DIV>
+			</DIV>
+
+
+		</DIV>
+
+		<!-- InstanceEndEditable -->
+		<DIV id="bottom-bg" class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A
+				href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A
+				href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A
+				href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+		<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<BR>个人求职 Email:club@51job.com　或垂询:800-820-5100
+			<BR>
+			未经本招聘网站同意，不得转载本网站之所有招聘信息及作品
+			<BR>
+			无忧工作网版权所有&copy;1999-2007<BR>
+			<A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A>
+		</DIV>
+	</BODY>
+	<!-- InstanceEnd -->
+</HTML>

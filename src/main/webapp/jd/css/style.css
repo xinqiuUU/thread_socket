@@ -1,0 +1,128 @@
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+	color: #b61d1d;
+}
+.wrap{
+	width: 990px;
+	margin: 0px auto;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.logo-box{
+	height: 60px;
+	margin-bottom: 30px;
+}
+.logo-r{
+	padding: 35px 20px;
+	font-size: 24px;
+}
+.content{
+	margin-top: 15px;
+	background: #e93854;
+}
+.login-box{
+	height: 450px;
+	background: url(../image/banner.png) no-repeat left top;
+}
+.login-form{
+	float: right;
+	margin-top: 45px;
+	margin-right: 66px;
+	background: #fff;
+	width: 306px;
+	height: 250px;
+}
+.login-form{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.login-form h2{
+	font-weight: normal;
+	font-size: 20px;
+}
+.login-form h2 a{
+	font-size: 16px;
+	color: #b61d1d;
+	padding-left: 21px;
+	float: right;
+	line-height: 29px;
+	background: url(../image/icon5.jpg) 0 center no-repeat;
+}
+.login-form .item{
+	height: 35px;
+	margin-bottom: 15px;
+	border: 1px solid #bdbdbd;
+}
+
+.item input{
+	float: left;
+	border: 0 none;
+	padding: 8px 0 8px 4px;
+	line-height: 14px;
+	width: 263px;
+	color: #999;
+	font-size: 16px;
+}
+.item input:focus {
+	outline: none;/*去掉输入框（input）获取焦点时的默认边框*/
+	font-size: 16px;
+	color: black;
+}
+.item label{
+	border-right: 1px solid #bdbdbd;
+	width: 35px;
+	height: 35px;
+}
+.item .nick{
+	background: url(../image/icon1.jpg) no-repeat;
+}
+.item .psw{
+	background: url(../image/icon2.jpg) no-repeat;
+}
+.item2{
+	margin-bottom: 15px;
+}
+.item2 label{
+	font-size: 14px;
+	vertical-align: middle;/*用于将行内或行内块元素在其包含元素中垂直居中对齐。*/
+}
+.item2 input{
+	vertical-align: middle;/*用于将行内或行内块元素在其包含元素中垂直居中对齐。*/
+	margin-right: -2px;
+	margin-top: 4px;
+}
+.item2 a{
+	float: right;
+	font-size: 14px;
+}
+.login-btn{
+	display: block;/*元素会被渲染为块级元素，即单独占据一行，可以设置宽度、高度等属性。*/
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #fff;
+	background-color: #e93854;
+	font-size: 16px;
+}
+.login-btn:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.footer{
+	text-align: center;
+	margin-top: 16px;
+}
+.link a{
+	margin: 0 6px;
+}
+.copy{
+	margin-top: 10px;
+}

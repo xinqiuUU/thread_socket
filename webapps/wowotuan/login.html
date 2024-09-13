@@ -1,0 +1,151 @@
+
+<HTML><!-- InstanceBegin template="/Templates/Template.dwt" codeOutsideHTMLIsLocked="false" -->
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<!-- InstanceBeginEditable name="doctitle" -->
+		<TITLE>用户登录页面</TITLE>
+		<LINK href="image/style.css" type="text/css" rel="stylesheet">
+		<link href="css/mycss.css" type="text/css" rel="stylesheet" />
+		<!-- InstanceEndEditable -->
+		<!-- InstanceBeginEditable name="head" -->
+		<SCRIPT language="javascript">
+		
+		
+		//绑定事件  页面加载完毕执行
+		window.addEventListener('DOMContentLoaded',function(){
+			
+			//会员名  /^\w{6,}$/ name  username
+			document.getElementsByName("username")[0].addEventListener('blur',function(){
+				var nameReg = /^\w{6,}$/;
+				if( !nameReg.test(this.value) ){
+					alert("会员名密码必须为6位以上的数字、字母、下划线。。。。")
+				}
+			});
+			//密码   /^\w{8,16}$/    name  pwd
+			document.getElementsByName("pwd")[0].addEventListener('blur',function(){
+				var pwdReg = /^\w{8,16}$/;
+				if( !pwdReg.test(this.value) ){
+					alert("密码必须为8到16位的数字、字母、下划线。。。。")
+				}
+			});
+			
+			//登录按钮
+			document.getElementsByName("b1")[0].onmouseover = function(){
+				document.getElementsByName("b1")[0].className = "login-over";
+			}
+			document.getElementsByName("b1")[0].onmouseleave = function(){
+				document.getElementsByName("b1")[0].className = "login-out";
+			}
+			
+		}) ;
+
+
+		</SCRIPT>
+		<!-- InstanceEndEditable -->
+	</HEAD>
+	<BODY>
+		<!-- InstanceBeginEditable name="EditRegion3" -->
+		<DIV class="main">
+			<DIV id="logo"><IMG src="image/logo.gif"></DIV>
+			<DIV id="menu"><A href="login.html"><IMG src="image/menu1-1.gif"></A><A href="search.html"><IMG
+						src="image/menu2-2.gif"></A><A href="intro.html"><IMG src="image/menu3-2.gif"></A></DIV>
+			<DIV id="menu-bg1">我的简历 | 个人搜索器 | 职位收藏夹 | 工作申请记录 | 退出 </DIV>
+
+			<DIV class="register">
+				<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+					<TR><!--用户登录-->
+						<TD width="40%" align="right">
+							<TABLE width="324" border="0" cellspacing="0" cellpadding="0">
+								<TR>
+									<TD><IMG src="image/Login_top.gif"></TD>
+								</TR>
+								<TR>
+									<TD>
+										<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+											<TR>
+												<TD width="21"><IMG src="image/Login_left.gif"></TD>
+												<TD bgcolor="#FFFFF7" align="center" valign="middle">
+													<FORM action="intro.html" method="post" name="myform"
+														onSubmit="return check()">
+														<TABLE width="96%" border="0" cellspacing="0" cellpadding="0">
+															<TR>
+																<TD class="register-td">会员名：</TD>
+																<TD><INPUT name="username" type="text"
+																		class="register-input"></TD>
+															</TR>
+															<TR>
+																<TD class="register-td">密&nbsp;&nbsp;码：</TD>
+																<TD><INPUT name="pwd" type="password"
+																		class="register-input"></TD>
+															</TR>
+															<TR>
+																<TD colspan="2" align="center" height="50"><INPUT
+																		name="b1" type="submit" value="登录"
+																		class="login-over"></TD>
+															</TR>
+															<TR>
+																<TD colspan="2" align="center" height="50"><A
+																		href="register.html"><IMG
+																			src="image/login-1.gif"></A></TD>
+															</TR>
+														</TABLE>
+													</FORM>
+												</TD>
+												<TD width="21"><IMG src="image/Login_right.gif"></TD>
+											</TR>
+										</TABLE>
+									</TD>
+								</TR>
+								<TR>
+									<TD align="center"><IMG src="image/Login_bottom.gif"></TD>
+								</TR>
+							</TABLE>
+						</TD><!--右侧-->
+						<TD>
+							<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+								<TR>
+									<TD width="100" align="center"><IMG src="image/pic1.jpg" vspace="10"></TD>
+									<TD><SPAN class="login-bold">我的简历</SPAN> <BR>
+										51job的简历中心，您可以在此创建自己专业的个性化的简历。</TD>
+								</TR>
+								<TR>
+									<TD align="center"><IMG src="image/pic2.jpg" vspace="5"></TD>
+									<TD><SPAN class="login-bold">找工作</SPAN><BR>
+										在茫茫职场中如何找工作？51job的职位搜索器助您一臂之力！</TD>
+								</TR>
+								<TR>
+									<TD align="center"><IMG src="image/pic3.jpg" vspace="5"></TD>
+									<TD><SPAN class="login-bold">在线申请</SPAN> <BR>
+										当您找到感兴趣的职位时，可以立即将您在51job上的简历在线<BR>
+										投递给招聘单位。</TD>
+								</TR>
+								<TR>
+									<TD align="center"><IMG src="image/pic4.jpg" vspace="5"></TD>
+									<TD><SPAN class="login-bold">我的搜索和订阅</SPAN> <BR>
+										设置并订阅您个性化的职位搜索器，51job会贴心的将理想的职<BR>
+										位发送到您的信箱中。</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+
+
+			</DIV>
+
+		</DIV>
+		<!-- InstanceEndEditable -->
+		<DIV id="bottom-bg" class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A
+				href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A
+				href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A
+				href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+		<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<BR>个人求职 Email:club@51job.com　或垂询:800-820-5100
+			<BR>
+			未经本招聘网站同意，不得转载本网站之所有招聘信息及作品
+			<BR>
+			无忧工作网版权所有&copy;1999-2007<BR>
+			<A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A>
+		</DIV>
+	</BODY>
+	<!-- InstanceEnd -->
+</HTML>

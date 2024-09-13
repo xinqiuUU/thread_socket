@@ -1,0 +1,563 @@
+<HTML><!-- InstanceBegin template="/Templates/Template.dwt" codeOutsideHTMLIsLocked="false" -->
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<!-- InstanceBeginEditable name="doctitle" -->
+		<TITLE>招聘公司网页</TITLE>
+		<LINK href="image/style.css" type="text/css" rel="stylesheet">
+		<link href="css/mycss.css" type="text/css" rel="stylesheet" />
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<SCRIPT language="JavaScript">
+			
+			document.addEventListener("DOMContentLoaded", init);
+
+			function init() {
+				down_box();
+				allProvince();
+			}
+			//四幅图片循环显示的横幅广告
+			var advertisementID=1;
+			setInterval(advertisement, 1000);
+			function advertisement(){
+				advertisementID++;
+				if(advertisementID==5){
+					advertisementID=1;
+				}
+				for(var i=1;i<5;i++){
+					if(i==advertisementID){
+						$("#ad"+i).css("display","block");
+					}else{
+						$("#ad"+i).css("display","none");
+					}
+				}
+			}
+			
+			//下拉列表框
+			function down_box() {
+				let td = document.getElementById("header_xia").getElementsByTagName("tr")[0].getElementsByTagName("td");
+				let td1 = document.getElementById("header_xia").getElementsByTagName("tr")[1].getElementsByTagName("td");
+				for(let i=1;i<td.length;i++){
+					td[i].addEventListener("mouseover", function(){
+						// td1[i].getElementsByClassName("company-hide")[i-1].style.display="block";
+						document.getElementById("s"+i).style.display="block";
+					});
+					td[i].addEventListener("mouseout", function(){
+						// td1[i].getElementsByClassName("company-hide")[i-1].style.display="none";
+						document.getElementById("s"+i).style.display="none";
+					});	
+				}
+			}
+			//功能菜单
+			function showr(index){
+				for(var i=1;i<5;i++){
+					if(index == i){
+						document.getElementById("left-menu"+index).style.display="block";
+					}else{
+						document.getElementById("left-menu"+i).style.display="none";
+					}
+				}
+				
+			}
+			
+			//选择城市
+			var cityList = new Array();
+			cityList['北京市'] = ['朝阳区', '东城区', '西城区', '海淀区', '宣武区', '丰台区', '怀柔', '延庆', '房山'];
+			cityList['上海市'] = ['宝山区', '长宁区', '丰贤区', '虹口区', '黄浦区', '青浦区', '南汇区', '徐汇区', '卢湾区'];
+			cityList['广州省'] = ['广州市', '惠州市', '汕头市', '珠海市', '佛山市', '中山市', '东莞市'];
+			cityList['深圳市'] = ['福田区', '罗湖区', '盐田区', '宝安区', '龙岗区', '南山区', '深圳周边'];
+			cityList['重庆市'] = ['俞中区', '南岸区', '江北区', '沙坪坝区', '九龙坡区', '渝北区', '大渡口区', '北碚区'];
+			cityList['天津市'] = ['和平区', '河西区', '南开区', '河北区', '河东区', '红桥区', '塘古区', '开发区'];
+			cityList['江苏省'] = ['南京市', '苏州市', '无锡市'];
+			cityList['浙江省'] = ['杭州市', '宁波市', '温州市'];
+			cityList['四川省'] = ['四川省', '成都市'];
+			cityList['海南省'] = ['海口市'];
+			cityList['福建省'] = ['福州市', '厦门市', '泉州市', '漳州市'];
+			cityList['山东省'] = ['济南市', '青岛市', '烟台市'];
+			cityList['江西省'] = ['江西省', '南昌市'];
+			cityList['广西省'] = ['柳州市', '南宁市'];
+			cityList['安徽省'] = ['安徽省', '合肥市'];
+			cityList['河北省'] = ['邯郸市', '石家庄市'];
+			cityList['河南省'] = ['郑州市', '洛阳市'];
+			cityList['湖北省'] = ['武汉市', '宜昌市'];
+			cityList['湖南省'] = ['湖南省', '长沙市'];
+			cityList['陕西省'] = ['陕西省', '西安市'];
+			cityList['山西省'] = ['山西省', '太原市'];
+			cityList['黑龙江省'] = ['黑龙江省', '哈尔滨市'];
+			cityList['其他'] = ['其他'];
+			
+			//  省份
+			function allProvince(){
+				let province=document.getElementById("selProvince");
+				province.options.length=0;
+				for( let pn in cityList){  //pn  取的是省份名  
+					var oOption = document.createElement("option");
+					province.options.add(oOption);
+					oOption.innerText = pn;
+					oOption.value = pn;
+				}
+				changeCity();
+			}
+			//城市
+			function changeCity(){
+				let province = document.getElementById("selProvince").value;
+				let city=document.getElementById("selCity");
+				let cities = cityList[province];
+				city.options.length=0;
+				for( let cnid in cities){
+					var cname=cities[cnid];
+					var oOption = document.createElement("option");
+					city.options.add(oOption);
+					oOption.innerText = cname;
+					oOption.value = cname;
+				}
+			}
+		</SCRIPT>
+		<!-- InstanceEndEditable -->
+		<!-- InstanceBeginEditable name="head" -->
+
+		<SCRIPT src="Scripts/AC_RunActiveContent.js" type="text/javascript"></SCRIPT>
+		<!-- InstanceEndEditable -->
+	</HEAD>
+	<BODY>
+		<!-- InstanceBeginEditable name="EditRegion3" -->
+		<DIV>
+			<!--头部及菜单-->
+			<DIV>
+				<TABLE width="730" border="0" cellspacing="0" cellpadding="0" align="center">
+					<TR>
+						<TD bgColor="#e5e5e5" height="60">
+							<DIV style="float:left; padding-left:10px;"><IMG src="image/zx-banner.gif"></DIV>
+							<DIV style="padding-right:10px; float:right">
+								<SCRIPT type="text/javascript">
+									AC_FL_RunContent('codebase',
+										'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0', 'width', '375',
+										'height', '48', 'src', 'image/zxtop', 'quality', 'high', 'pluginspage',
+										'http://www.macromedia.com/go/getflashplayer', 'movie', 'image/zxtop'); //end AC code
+								</SCRIPT><NOSCRIPT><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+										codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+										width="375" height="48">
+										<PARAM name="movie" value="image/zxtop.swf">
+										<PARAM name="quality" value="high">
+										<EMBED src="image/zxtop.swf" QUALITY="high"
+											PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
+											TYPE="application/x-shockwave-flash" width="375" height="48"></EMBED>
+									</OBJECT></NOSCRIPT>
+							</DIV>
+						</TD>
+					</TR>
+					<TR>
+						<TD height="1"></TD>
+					</TR>
+					<TR>
+						<TD>
+							<TABLE id="header_xia" width="100%" border="0" cellspacing="0" cellpadding="0"
+								align="center">
+								<TR>
+									<TD width="172" bgcolor="#dfdfdf" align="center"
+										style="border-bottom:#ffffff 1 solid;"><A href="company.html">
+											<FONT color="#000000">首 页</FONT>
+										</A></TD>
+									<TD><A href="#" class="div-link">关于中信</A></TD>
+									<TD><A href="#" class="div-link">公司业务</A></TD>
+									<TD><A href="#" class="div-link">公益事业</A></TD>
+									<TD><A href="#" class="div-link">中信研究</A></TD>
+									<TD><A href="#" class="div-link">推荐招聘</A></TD>
+									<TD><A href="#" class="div-link">特色推荐</A></TD>
+								</TR>
+								<TR>
+									<TD></TD>
+									<TD>
+										<DIV class="company-hide" id="s1"><A href="#" class="div-link">公司简介</A><BR><A
+												href="#" class="div-link">集团领导</A><BR><A href="#"
+												class="div-link">领导题词</A><BR><A href="#" class="div-link">业务回顾</A><BR><A
+												href="#" class="div-link">公司历史</A><BR><A href="#"
+												class="div-link">中信风格</A><BR><A href="#" class="div-link">公司年报</A><BR><A
+												href="#" class="div-link">公司要闻</A></DIV>
+									</TD>
+									<TD>
+										<DIV class="company-hide" id="s2"><A href="#" class="div-link">金融</A><BR><A
+												href="#" class="div-link">非金融</A></DIV>
+									</TD>
+									<TD>
+										<DIV class="company-hide" id="s3"><A href="#" class="div-link">扶贫</A><BR><A
+												href="#" class="div-link">绿化</A><BR><A href="#" class="div-link">援藏</A>
+										</DIV>
+									</TD>
+									<TD>
+										<DIV class="company-hide" id="s4"></DIV>
+									</TD>
+									<TD>
+										<DIV class="company-hide" id="s5"></DIV>
+									</TD>
+									<TD>
+										<DIV class="company-hide" id="s6"><A href="#" class="div-link">网络金融</A><BR><A
+												href="#" class="div-link">中信出版</A><BR><A href="#"
+												class="div-link">会展服务</A></DIV>
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</DIV>
+			<!--中间-->
+			<DIV>
+				<TABLE width="730" border="0" cellspacing="0" cellpadding="0" align="center">
+					<TR>
+						<TD width="172" style="background-image:url(image/company-bg.gif); background-repeat:repeat-y;"
+							valign="top">
+							<DIV style="padding-left:10px;">
+								<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+									<FORM method="get" name="myform">
+										<TR>
+											<TD height="30">用户名：</TD>
+											<TD><INPUT name="username" type="text" class="company-input"></TD>
+										</TR>
+										<TR>
+											<TD height="25">密&nbsp;&nbsp;码：</TD>
+											<TD><INPUT name="pwd" type="password" class="company-input"></TD>
+										</TR>
+										<TR align="center">
+											<TD height="30"><INPUT name="b1" type="button" value="登 录" class="btn"></TD>
+											<TD><INPUT name="B2" type="reset" value="重 置" class="btn"></TD>
+										</TR>
+									</FORM>
+								</TABLE>
+							</DIV>
+							<DIV><IMG src="image/company-left01.gif"></DIV>
+							<DIV>
+								<TABLE width="85%" border="0" cellspacing="0" cellpadding="0" align="center">
+									<TR>
+										<TD height="25">&nbsp;<IMG src="image/company-arrow.gif"> <A
+												href="javascript:showr(1);">热点招聘</A></TD>
+									</TR>
+									<TR>
+										<TD
+											style="background-image:url(image/company-dot.gif); background-repeat:repeat-x;">
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25">&nbsp;<IMG src="image/company-arrow.gif"> <A
+												href="javascript:showr(2);">检索职位</A></TD>
+									</TR>
+									<TR>
+										<TD
+											style="background-image:url(image/company-dot.gif); background-repeat:repeat-x;">
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25">&nbsp;<IMG src="image/company-arrow.gif"> <A
+												href="javascript:showr(3);">注册</A></TD>
+									</TR>
+									<TR>
+										<TD
+											style="background-image:url(image/company-dot.gif); background-repeat:repeat-x;">
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25">&nbsp;<IMG src="image/company-arrow.gif"> <A
+												href="javascript:showr(4);">找回密码</A></TD>
+									</TR>
+									<TR>
+										<TD
+											style="background-image:url(image/company-dot.gif); background-repeat:repeat-x;">
+										</TD>
+									</TR>
+									<TR>
+										<TD height="15"></TD>
+									</TR>
+								</TABLE>
+
+
+
+
+
+
+							</DIV>
+							<DIV><IMG src="image/company-left02.gif"></DIV>
+							<TABLE width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+								<FORM action="" method="get" name="myform1">
+									<TR>
+										<TD>请选择城市：</TD>
+									</TR>
+									<TR>
+										<TD height="25" align="center"><SELECT name="selProvince" id="selProvince"
+												onChange="changeCity( )" style="WIDTH: 110px">
+												<OPTION>--选择省份--</OPTION>
+											</SELECT>
+										</TD>
+									</TR>
+									<TR>
+										<TD height="25" align="center"><SELECT name="selCity" id="selCity"
+												style="WIDTH: 110px">
+												<OPTION>--选择城市--</OPTION>
+											</SELECT></TD>
+									</TR>
+									<TR>
+										<TD align="center" height="35"><INPUT name="B22" type="submit" value="查 询"
+												class="btn"></TD>
+									</TR>
+								</FORM>
+							</TABLE>
+
+
+
+
+
+
+						</TD>
+						<TD valign="top">
+							<!--轮换横幅广告-->
+							<DIV align="center"><IMG src="image/scroll1.jpg" style="display:none;" id="ad1"><IMG
+									src="image/scroll3.jpg" style="display:none;" id="ad2"><IMG src="image/scroll2.jpg"
+									style="display:none;" id="ad3"><IMG src="image/scroll4.jpg" style="display:none;"
+									id="ad4"></DIV>
+
+
+
+
+
+
+
+							<!--热点招聘层开始-->
+							<DIV style="display:block;padding-top:15px;" id="left-menu1">
+								<TABLE width="554" border="0" cellspacing="0" cellpadding="0" align="right">
+									<TR>
+										<TD colspan="6" height="25"> <IMG src="image/company-arrow.gif"> <SPAN
+												class="login-bold">热点招聘</SPAN></TD>
+									</TR>
+									<TR>
+										<TD class="company-tr1" width="25">&nbsp;</TD>
+										<TD class="company-tr1">职位名称</TD>
+										<TD class="company-tr1">公司名称</TD>
+										<TD class="company-tr1">人数</TD>
+										<TD class="company-tr1">地点</TD>
+										<TD class="company-tr1">发布时间</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">1</TD>
+										<TD class="company-br1"><A href="#">计划管理主管</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">1</TD>
+										<TD class="company-br1">北京</TD>
+										<TD class="company-br1">2007-10-13</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">2</TD>
+										<TD class="company-br1"><A href="#">数字电视产品策划</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">2</TD>
+										<TD class="company-br1">北京</TD>
+										<TD class="company-br1">2007-10-12</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">3</TD>
+										<TD class="company-br1"><A href="#">数字电视业务管理专员</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">2</TD>
+										<TD class="company-br1">北京</TD>
+										<TD class="company-br1">2007-10-12</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">4</TD>
+										<TD class="company-br1"><A href="#">运维工程师－电源系统</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">1</TD>
+										<TD class="company-br1">南京,郑州<BR>
+											北京,上海<BR>
+											广州,深圳<BR>
+											福州,武汉<BR>
+											天津,长沙<BR>
+											郑州,济南
+										</TD>
+										<TD class="company-br1">2007-10-08</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">5</TD>
+										<TD class="company-br1"><A href="#">运行维护工程师</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">2</TD>
+										<TD class="company-br1">北京,上海<BR>
+											广州,深圳<BR>
+											杭州,南京<BR>
+											福州,武汉</TD>
+										<TD class="company-br1">2007-10-07</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">6</TD>
+										<TD class="company-br1"><A href="#">战略研究投资分析师</A></TD>
+										<TD class="company-br1"><A href="#">中信网络有限公司</A></TD>
+										<TD class="company-br1">2</TD>
+										<TD class="company-br1">北京</TD>
+										<TD class="company-br1">2007-10-07</TD>
+									</TR>
+									<TR>
+										<TD class="company-br1">7</TD>
+										<TD class="company-br1"><A href="#">预算管理主管</A> </TD>
+										<TD class="company-br1"><A href="#">中信天津工业发展公司</A></TD>
+										<TD class="company-br1">1</TD>
+										<TD class="company-br1">天津</TD>
+										<TD class="company-br1">2007-10-06</TD>
+									</TR>
+									<TR>
+										<TD colspan="6" height="10"></TD>
+									</TR>
+								</TABLE>
+							</DIV>
+							
+							<!--检索职位开始-->
+							<DIV style="display:none;padding-top:15px;" id="left-menu2">
+								<TABLE width="554" border="0" cellspacing="0" cellpadding="0" align="right">
+									<TR>
+										<TD colspan="2" height="25"> <IMG src="image/company-arrow.gif"> <SPAN
+												class="login-bold">添加检索器</SPAN></TD>
+									</TR>
+									<FORM action="" method="post" name="form-menu2">
+										<TR>
+											<TD class="company-br2">公司名称关键字</TD>
+											<TD class="company-br3"><INPUT name="company-key" type="text"
+													class="register-input">
+											</TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">职位名称关键字</TD>
+											<TD class="company-br3"><INPUT name="job-key" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">职位类型</TD>
+											<TD class="company-br3"><INPUT name="job-type" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">发布日期</TD>
+											<TD class="company-br3"><INPUT name="fdate" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">工作地区</TD>
+											<TD class="company-br3"><INPUT name="address" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">薪酬范围</TD>
+											<TD class="company-br3"><INPUT name="salary" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">其他关键字<BR>（岗位职责、任职条件）</TD>
+											<TD class="company-br3"><TEXTAREA name="con-key" cols="40"
+													rows="6"></TEXTAREA>
+											</TD>
+										</TR>
+										<TR>
+											<TD align="center" colspan="2" height="30"><INPUT name="left-btn"
+													type="submit" class="btn" value="搜索">
+											</TD>
+										</TR>
+										<TR>
+											<TD>&nbsp;</TD>
+											<TD>&nbsp;</TD>
+										</TR>
+									</FORM>
+								</TABLE>
+							</DIV>
+							<!--注册开始-->
+							<DIV style="display:none;padding-top:15px;" id="left-menu3">
+								<TABLE width="554" border="0" cellspacing="0" cellpadding="0" align="right">
+									<TR>
+										<TD colspan="2" height="25"> <IMG src="image/company-arrow.gif"> <SPAN
+												class="login-bold">用户注册</SPAN></TD>
+									</TR>
+									<FORM action="" method="post" name="form-menu3">
+										<TR>
+											<TD class="company-br2">E-mail</TD>
+											<TD class="company-br3"><INPUT name="email" type="text"
+													class="register-input"></TD>
+											<TD class="company-br2">用户名</TD>
+											<TD class="company-br3"><INPUT name="email" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">密码</TD>
+											<TD class="company-br3"><INPUT name="pwd" type="text"
+													class="register-input"></TD>
+											<TD class="company-br2">确认密码</TD>
+											<TD class="company-br3"><INPUT name="repeatpwd" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">联系方式</TD>
+											<TD class="company-br3"><INPUT name="tel" type="text"
+													class="register-input"></TD>
+											<TD class="company-br2">地址</TD>
+											<TD class="company-br3"><INPUT name="Caddress" type="text"
+													class="register-input"></TD>
+										</TR>
+										<TR>
+											<TD align="center" colspan="4" height="30"><INPUT name="left3-btn"
+													type="submit" class="btn" value="注册">
+											</TD>
+										</TR>
+										<TR>
+											<TD>&nbsp;</TD>
+											<TD>&nbsp;</TD>
+											<TD>&nbsp;</TD>
+											<TD>&nbsp;</TD>
+										</TR>
+									</FORM>
+								</TABLE>
+							</DIV>
+							<!--找回密码开始-->
+							<DIV style="display:none;padding-top:15px;" id="left-menu4">
+								<TABLE width="554" border="0" cellspacing="0" cellpadding="0" align="right">
+									<TR>
+										<TD colspan="2" height="25"> <IMG src="image/company-arrow.gif"> <SPAN
+												class="login-bold">找回密码</SPAN></TD>
+									</TR>
+									<FORM action="" method="post" name="form-menu4">
+										<TR>
+											<TD class="company-br2">请输入用户名</TD>
+											<TD class="company-br3"><INPUT name="r-username" type="text"
+													class="register-input">
+											</TD>
+										</TR>
+										<TR>
+											<TD class="company-br2">请输入注册邮箱</TD>
+											<TD class="company-br3"><INPUT name="r-email" type="text"
+													class="register-input">
+											</TD>
+										</TR>
+										<TR>
+											<TD align="center" colspan="2" height="30"><INPUT name="left4-btn"
+													type="submit" class="btn" value="确定">
+											</TD>
+										</TR>
+										<TR>
+											<TD>&nbsp;</TD>
+											<TD>&nbsp;</TD>
+										</TR>
+									</FORM>
+								</TABLE>
+							</DIV>
+						</TD>
+					</TR>
+				</TABLE>
+			</DIV>
+
+		</DIV>
+		<!-- InstanceEndEditable -->
+		<DIV id="bottom-bg" class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A
+				href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A
+				href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A
+				href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+		<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<BR>个人求职 Email:club@51job.com　或垂询:800-820-5100
+			<BR>
+			未经本招聘网站同意，不得转载本网站之所有招聘信息及作品
+			<BR>
+			无忧工作网版权所有&copy;1999-2007<BR>
+			<A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A>
+		</DIV>
+	</BODY>
+	<!-- InstanceEnd -->
+</HTML>
